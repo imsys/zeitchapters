@@ -1,0 +1,36 @@
+{
+	"require": {
+		"laravel/framework": "4.0.*",
+		"barryvdh/laravel-ide-helper": "dev-master",
+		"mews/captcha": "dev-master",
+		"taylorotwell/laravel-oauth2": "0.2.*"
+	},
+	"autoload": {
+		"classmap": [
+			"app/commands",
+			"app/controllers",
+			"app/models",
+			"app/database/migrations",
+			"app/database/seeds",
+			"app/tests/TestCase.php"
+		]
+	},
+	"scripts": {
+		"pre-update-cmd": [
+			"php artisan clear-compiled"
+		],
+		"post-install-cmd": [
+			"php artisan optimize",
+			"php artisan clear-compiled",
+			"php artisan ide-helper:generate"
+		],
+		"post-update-cmd": [
+			"php artisan optimize",
+			"php artisan ide-helper:generate"
+		]
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+	"minimum-stability": "dev"
+}
