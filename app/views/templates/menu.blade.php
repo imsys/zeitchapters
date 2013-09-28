@@ -8,7 +8,16 @@
             </div>-->
 <div id="mws-navigation">
 	<ul>
-		<li><a href="{{ URL::to('chapter/view/1') }}"><i class="icon-globe"></i> {{ trans('general.chapters') }}</a></li>
+		<li><a href="{{ URL::to('chapter/view/1') }}"><i class="icon-globe"></i> {{ trans('general.chapters') }}</a>
+		
+			<ul>
+				@foreach (Auth::user()->chapters as $chapter)
+					<li><a href="{{ URL::to('chapter/view/'. $chapter->id ) }}">{{ $chapter->name}}</a></li>
+				@endforeach
+			</ul>
+
+		
+		</li>
 @if(!Auth::guest() && Auth::user()->has_role('admin'))
 		<li><a href="{{ URL::to('user') }}"><i class="icon-users"></i> {{ trans('general.users') }}</a></li>
 @endif
