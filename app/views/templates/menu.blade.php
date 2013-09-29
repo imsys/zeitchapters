@@ -11,9 +11,11 @@
 		<li><a href="{{ URL::to('chapter/view/1') }}"><i class="icon-globe"></i> {{ trans('general.chapters') }}</a>
 		
 			<ul>
-				@foreach (Auth::user()->chapters as $chapter)
-					<li><a href="{{ URL::to('chapter/view/'. $chapter->id ) }}">{{ $chapter->name}}</a></li>
-				@endforeach
+				@if(!Auth::guest())
+					@foreach (Auth::user()->chapters as $chapter)
+						<li><a href="{{ URL::to('chapter/view/'. $chapter->id ) }}">{{ $chapter->name}}</a></li>
+					@endforeach
+				@endif
 			</ul>
 
 		
