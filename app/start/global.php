@@ -51,8 +51,10 @@ Log::useDailyFiles(storage_path().'/logs/'.$logFile);
 App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
-	mail('adm@movimentozeitgeist.com.br', 'Exception '.$code, $exception);
-	return 'Ocorreu um erro interno, iremos verificar e corrigí-lo, por favor, tente mais tarde.';
+	if (App::environment() != 'local'){
+		mail('adm@movimentozeitgeist.com.br', 'Exception '.$code, $exception);
+		return 'Ocorreu um erro interno, iremos verificar e corrigí-lo, por favor, tente mais tarde.';
+	}
 });
 
 
