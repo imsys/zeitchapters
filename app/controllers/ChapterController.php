@@ -40,6 +40,10 @@ class ChapterController extends BaseController {
 
 			}))->find($id);
 			
+		if(!$chapter){
+			return View::make('pages.message', array('title' => 'Erro', 'msg'=>'Índice do capítulo incorreto.'));
+		}
+			
 		$usercoordchap = Auth::user()->has_role_on_chapter('Coordinator', $chapter->id) || Auth::user()->has_role_on_chapter('subcoordinator', $chapter->id) || Auth::user()->has_role('admin');
 			
 		//return print_r($chapter);
