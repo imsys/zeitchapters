@@ -63,6 +63,11 @@ App::error(function(Illuminate\Session\TokenMismatchException $exception)
     return View::make('pages.message', array('title' => 'Erro', 'msg'=>'Aparentemente você ja preencheu esse formulário.'));
 });
 
+App::missing(function($exception)
+ {
+     return View::make('pages.message', array('title' => 'Erro 404', 'msg'=>'Erro 404 - Página não encontrada'));
+ });
+
 /*
 App::error(function(Predis\Connection\ConnectionException $exception)
 {
