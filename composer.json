@@ -1,9 +1,9 @@
 {
 	"require": {
-		"laravel/framework": "4.0.*",
+		"laravel/framework": "4.2.*",
 		"barryvdh/laravel-ide-helper": "dev-master",
 		"mews/captcha": "dev-master",
-		"taylorotwell/laravel-oauth2": "0.2.*"
+		"madewithlove/laravel-oauth2": "0.4.*"
 	},
 	"autoload": {
 		"classmap": [
