@@ -1,5 +1,7 @@
+/bootstrap/compiled.php
 /vendor
-
+.env.*.php
+.env.php
 
 
 # OS generated files #
@@ -21,7 +23,6 @@ Thumbs.db
 /public/css/
 /public/plugins/
 /public/js/
-/app/storage/
 /app/config/app.php
 /app/config/local/oauth.php
 /app/config/database.php
